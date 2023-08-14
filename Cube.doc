@@ -1,0 +1,100 @@
+------------------------------------------------------------
+            The Infinite Monkey Cage - Game Documentation
+------------------------------------------------------------
+
+Table of Contents:
+1. Overview
+2. Functions
+   2.1. initialise()
+   2.2. display_location(coordinate, trap_nearby)
+   2.3. move_location(location, move_to)
+   2.4. directions(coordinate)
+   2.5. coordinates(location)
+   2.6. trap_proximity(location, trap_location)
+   2.7. areyousure(prompt)
+   2.8. win_game()
+   2.9. loose_game()
+   2.10. introduction()
+   2.11. help_screen()
+   2.12. shortest_way_to_exit(location, exit_point)
+   2.13. status(coordinate, location, move_to, trap_nearby, valid_directions, trap_location)
+   2.14. positive_integer(pi)
+   2.15. bye()
+   2.16. restart_game()
+3. Main Game Loop
+
+------------------------------------------------------------
+1. Overview:
+The Infinite Monkey Cage is a text-based maze game where the player navigates through a 3D grid of cells to reach the exit while avoiding traps. The player's current location and nearby traps are displayed, and the player can move in six directions: up, down, north, south, west, and east. The objective is to find the exit and avoid traps.
+
+------------------------------------------------------------
+2. Functions:
+
+2.1. initialise():
+   Initializes the game by generating trap and exit locations, as well as entry point.
+   Returns: entry_point, exit_point, trap_location
+
+2.2. display_location(coordinate, trap_nearby):
+   Displays the current location and trap warning on the screen.
+   Parameters: coordinate - List of [level, row, column], trap_nearby - Boolean
+
+2.3. move_location(location, move_to):
+   Moves the player's location based on the direction chosen.
+   Parameters: location - Current location, move_to - Direction to move
+
+2.4. directions(coordinate):
+   Returns a list of valid directions the player can move from a given coordinate.
+   Parameter: coordinate - List of [level, row, column]
+
+2.5. coordinates(location):
+   Converts a linear location to 3D coordinates.
+   Parameter: location - Linear location in the 3D grid
+
+2.6. trap_proximity(location, trap_location):
+   Checks if there's a trap nearby the current location.
+   Parameters: location - Current location, trap_location - List of trap locations
+
+2.7. areyousure(prompt):
+   Prompts the user for a yes or no answer.
+   Parameter: prompt - Prompt text
+   Returns: True if 'yes', False if 'no'
+
+2.8. win_game():
+   Displays a win message and prompts for restarting the game.
+
+2.9. loose_game():
+   Displays a lose message and prompts for restarting the game.
+
+2.10. introduction():
+   Displays the game introduction screen.
+
+2.11. help_screen():
+   Displays the help screen with valid movement directions.
+
+2.12. shortest_way_to_exit(location, exit_point):
+   Calculates the shortest number of steps to reach the exit from a given location.
+   Parameters: location - Current location, exit_point - Exit location
+   Returns: Shortest distance as an integer
+
+2.13. status(coordinate, location, move_to, trap_nearby, valid_directions, trap_location):
+   Displays the current status of game variables (for debugging purposes).
+   Parameters: coordinate - Current coordinate, location - Current location,
+               move_to - Last move direction, trap_nearby - Boolean,
+               valid_directions - List of valid directions, trap_location - List of trap locations
+
+2.14. positive_integer(pi):
+   Returns the positive integer value of a number.
+   Parameter: pi - Input number
+   Returns: Positive integer
+
+2.15. bye():
+   Exits the game with a "Goodbye" message.
+
+2.16. restart_game():
+   Restarts the game by re-initializing game variables.
+   Returns: location, exit_point, trap_location
+
+------------------------------------------------------------
+3. Main Game Loop:
+The program runs an infinite loop where it continuously prompts the player for movement input. It checks for win or lose conditions, calculates the shortest way to exit, and updates the game display accordingly. The loop can be interrupted by the player's choices to quit, view the help screen, or check the status.
+
